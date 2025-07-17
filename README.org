@@ -1,0 +1,18 @@
+* Bot that send greetings to Giulia in a Telegram group
+
+** Build and Run
+Use docker or podman, to your liking
+
+#+begin_src shell
+podman image build -t hey-giulia .
+
+podman run --rm \
+--env TELEGRAM_TOKEN=<your-telegram-token> \
+-v "$(pwd)"/messages.txt:/usr/app/messages.txt:Z \
+-v "$(pwd)"/heyGiulia.log:/usr/app/heyGiulia.log:Z \
+hey-giulia
+#+end_src
+
+** TODO:
+- Use env variables for chat ID
+- Log bot's errors
